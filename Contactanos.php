@@ -26,10 +26,14 @@
         Nuestro equipo apasionado y experto está aquí para ayudarte a encontrar el par perfecto, ya sea que busques algo para el día a día, una ocasión especial o simplemente quieras darte un gusto. Creemos que los zapatos son una extensión de tu personalidad, y estamos comprometidos a ayudarte a expresarla de la mejor manera posible.
 
         En Exclusive Wear, cada paso cuenta, y estamos aquí para asegurarnos de que los tuyos te lleven a donde quieres ir.</p>
-
-        <a href=""><img src="" alt=""></a>
-        <a href=""><img src="" alt=""></a>
-        <a href=""><img src="" alt=""></a>
+    </div>
+    <div class="hero">
+    <h3>Misión</h3>
+        <p>E"En Exclusive Wear, nuestra misión es ofrecer a nuestros clientes una experiencia excepcional de compra de calzado, combinando calidad, estilo y comodidad. Nos dedicamos a seleccionar cuidadosamente cada par de zapatos, garantizando que cada elección no solo refleje las últimas tendencias, sino que también brinde confort y durabilidad. Nuestro equipo experto está comprometido a ayudar a cada cliente a encontrar el calzado perfecto que exprese su personalidad y satisfaga sus necesidades, convirtiendo cada paso en una afirmación de estilo."</p>
+    </div>
+    <div class="hero">
+    <h3>Visión</h3>
+        <p>En Exclusive Wear, aspiramos a ser el destino líder en el mundo del calzado, reconocido por nuestra amplia selección y nuestro compromiso con la calidad y la satisfacción del cliente. Queremos inspirar a las personas a expresar su individualidad a través de su elección de calzado, convirtiéndonos en un referente en la moda y el confort. Con una fuerte conexión con las mejores marcas y diseñadores, buscamos ser pioneros en tendencias que trasciendan el tiempo, haciendo de cada compra una experiencia memorable.</p>
     </div>
 
     <!-- formulario para contacto -->
