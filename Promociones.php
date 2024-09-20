@@ -44,7 +44,7 @@ $query_promociones = mysqli_query($conexion, $sql_promociones);
                         <p><?php echo $producto['Descripcion']; ?></p>
                         <p>Precio: $<?php echo number_format($producto['Precio'], 2); ?></p>
                         <!-- Formulario para agregar al carrito -->
-                        <form method="POST" action="/api/CarritoCompras/addToCart.php">
+                        <form method="POST" action="CarritoCompras/addToCart.php">
                             <input type="hidden" name="product_id" value="<?php echo $producto['Id']; ?>">
                             <button type="submit" class="add-to-cart">Agregar al Carrito</button>
                         </form>
@@ -86,7 +86,7 @@ $query_promociones = mysqli_query($conexion, $sql_promociones);
                         <p><?php echo $producto['Descripcion']; ?></p>
                         <p>Precio: <span style="color: red;">$<?php echo number_format($producto['Precio'], 2); ?></span></p>
                         <!-- Formulario para agregar al carrito -->
-                        <form method="POST" action="/api/CarritoCompras/addToCart.php">
+                        <form method="POST" action="CarritoCompras/addToCart.php">
                             <input type="hidden" name="product_id" value="<?php echo $producto['Id']; ?>">
                             <button type="submit" class="add-to-cart">Agregar al Carrito</button>
                         </form>
