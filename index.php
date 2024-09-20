@@ -46,8 +46,8 @@ $query = mysqli_query($conexion, $sql);
         </div>
         <a href="Masculino.php">Masculino</a>
         <a href="Femenino.php">Femenino</a>
-        <a href="#">Promociones</a>
-        <a href="#">Contactanos</a>
+        <a href="Promociones.php">Promociones</a>
+        <a href="Contactanos.php">Contactanos</a>
     </nav>
 </header>
 
