@@ -39,7 +39,7 @@ $conexion = conexion();
                 </button>
             </div>
         </div>
-        <a href="Index.php">inicio</a>
+        <a href="index.php">inicio</a>
         <a href="Masculino.php">Masculino</a>
         <a href="Femenino.php">Femenino</a>
         <a href="Promociones.php">Promociones</a>
