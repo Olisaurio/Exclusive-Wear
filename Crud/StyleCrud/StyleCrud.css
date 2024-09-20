@@ -1,0 +1,184 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #171718;
+    margin: 0;
+    padding: 0;
+    font-family: "Baskervville SC";
+}
+
+header{
+    text-align: center;
+    padding: 10px 0;
+    background:#333;
+    border-bottom: black;
+}
+
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;  
+    margin: 0px 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    
+}
+
+nav a:hover{
+    color: #8b0000;  
+    border-radius: 20px;
+    text-decoration: underline;
+    
+}
+
+ nav .Logo {
+    height: 50px;
+    align-items: left 10px;
+    margin-left:10px ;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.Contenedor-General {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.Formulario {
+background:#333;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+padding: 20px;
+margin-bottom: 20px;
+width: 100%;
+max-width: 600px;
+}
+
+.Formulario h1 {
+    margin-top: 0;
+    color: #8b0000;
+    font-size: 24px;
+    text-align: center;
+}
+
+.Formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Formulario  a {
+   color: #8b0000;
+   text-decoration: none;
+}
+
+.Formulario input[type="text"],
+.Formulario input[type="password"],
+.Formulario input[type="email"] {
+    padding: 10px;
+    margin: 10px 0;   
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.Formulario input[type="submit"] {
+    background-color: #8b0000;
+    color:white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    justify-items: center;
+}
+
+.Formulario input[type="submit"]:hover {
+    background-color: #333;
+    text-decoration: underline;
+    text-decoration: #8b0000;
+    color: #8b0000;
+}
+.tabla {
+    width: 100%;
+    max-width: 900px;
+    background:  #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla h1 {
+    margin-top: 0;
+    color: #8b0000;
+    font-size: 24px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td { 
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th {
+    background-color:rgba(0,0,0,0.1);
+}
+
+td:nth-child(1) {
+    width: 40px;
+}
+
+td:nth-child(2), td:nth-child(3), td:nth-child(4) {
+    width: 120px; /* Ajusta el ancho de las columnas de nombres, apellidos y usuario */
+}
+
+td:nth-child(5) {
+    width: 180px; /* Ajusta el ancho de la columna de contraseña */
+}
+
+td:nth-child(6) {
+    width: 200px; /* Ajusta el ancho de la columna de correo */
+}
+
+tr:hover {
+background-color:rgba(0,0,0,0.1);
+}
+
+a {
+    color: #8b0000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .Formulario, .tabla {
+        width: 95%;
+}}

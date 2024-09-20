@@ -1,0 +1,228 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Baskervville SC";
+    background-image: url(./Imagenes/Fondo/blurry-gradient-haikei.svg);
+}
+
+/* Estilos del header */
+header {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #8b0000;
+    border-radius: 20px;
+    text-decoration: underline;
+}
+
+.LogoHeader {
+    height: 70px;
+    align-items: left 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.LoginCarrito {
+    height: 30px;
+    align-items: flex-end 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.LoginButton,
+.CarritoButton {
+    background-color: #333;
+    border: #333;
+    color: #8b0000;
+    font-family: "Baskervville SC";
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.LoginButton:hover,
+.CarritoButton:hover {
+    color: white;
+    text-decoration: overline;
+}
+
+.HeaderGeneral {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+
+
+.carrusel {
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+.carrusel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b0000;
+}
+
+.carousel {
+    display: flex;
+    animation: scroll 20s linear infinite; 
+}
+
+.card {
+    flex: 0 0 auto; 
+    width: 300px;
+    background: #f0f0f0; 
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333; 
+}
+
+.card p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555; 
+}
+
+
+.card p span {
+    font-weight: bold; 
+    color: red; 
+}
+
+footer {
+    background-color: #171718; 
+    color: white;
+    padding: 40px 20px; 
+    text-align: left;
+}
+
+footer .container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+footer h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px; 
+    color: #8b0000;
+}
+
+footer p {
+    margin-bottom: 10px; 
+    line-height: 1.6; 
+}
+
+footer a {
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+footer a:hover {
+    text-decoration: underline; 
+}
+
+footer .col-md-4 {
+    margin-bottom: 20px; 
+}
+
+footer img {
+    width: 30px; 
+    height: auto; 
+    margin-right: 10px; 
+}
+
+@media (min-width: 768px) {
+    footer .row {
+        display: flex; 
+        justify-content: space-between; 
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .Imagenes-Carrusel {
+        height: 300px;
+    }
+
+    .Imagenes-Carrusel h1 {
+        font-size: 36px;
+    }
+
+    .Imagenes-Carrusel p {
+        font-size: 30px;
+    }
+
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+        height: 350px;
+    }
+
+    footer {
+        padding: 30px 10px;
+    }
+
+    footer h3 {
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    footer a img {
+        width: 30px;
+        height: 30px;
+    }
+}

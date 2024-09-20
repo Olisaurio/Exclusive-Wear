@@ -1,0 +1,63 @@
+/* General reset and layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color:#171718 ;
+    margin: 0;
+    padding: 0;
+}
+
+.Formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #171718;
+}
+
+.Formulario a {
+    color: #8b0000;
+    text-decoration: none;
+}
+
+.Formulario a:hover {
+    text-decoration: underline;
+}
+
+form {
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #8b0000;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+input[type="submit"] {
+    background-color: #8b0000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #8b0000;
+}
+

@@ -1,0 +1,325 @@
+/* Estilos generales */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Baskervville SC";
+    background-image: url(./Imagenes/Fondo/blurry-gradient-haikei.svg);
+}
+
+
+header {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #8b0000;
+    border-radius: 20px;
+    text-decoration: underline;
+}
+
+.LogoHeader {
+    height: 70px;
+    align-items: left 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.LoginCarrito {
+    height: 30px;
+    align-items: flex-end 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.NombreUsuario{
+    font-size: 2rem;
+}
+
+.LoginButton,
+.CarritoButton,.LogoutButton {
+    background-color: #333;
+    border: #333;
+    color: #8b0000;
+    font-family: "Baskervville SC";
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.LoginButton:hover,
+.CarritoButton:hover {
+    color: white;
+    text-decoration: overline;
+}
+
+.HeaderGeneral {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.Imagenes-Carrusel {
+    background-image: url(Imagenes/IMAGENES-CARRUSEL/Nike\ Tennis\ -\ NikeCourt\ Air\ Zoom\ Vapor\ 4\ Mesh\ Sneakers\ -\ White.jpg);
+    background-position: center;
+    color: white;
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    background-size: cover;
+}
+
+.Imagenes-Carrusel h1 {
+    font-size: 50px;
+    padding: 6px 0;
+    color: #8b0000;
+    margin-left: 20px;
+}
+
+.Imagenes-Carrusel p {
+    font-size: 45px;
+    margin-left: 20px;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    padding: 60px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 450px;
+    padding: 30px 25px;
+    background: #fff;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    border-radius: 45px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 40px;
+    transition: all 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card .info {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.card:hover .info {
+    transform: translateY(-30px);
+}
+
+.card .info h1 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card .info p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.card .info .btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: #4b5563;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.card .info .btn:hover {
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    background-color: #4b5563;
+    color: #fff;
+}
+
+/* Estilos del footer */
+/* footer {
+    background-image: url(./Imagenes/Fondo/Inverso.svg);
+    color: black;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Baskervville SC', Arial, Helvetica, sans-serif;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #8b0000;
+}
+
+footer p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+footer a img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    transition: opacity 0.3s ease;
+}
+
+footer a img:hover {
+    opacity: 0.8;
+}
+
+footer p a {
+    color: #8b0000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #333;
+} */
+
+
+footer {
+    background-color: #171718; 
+    color: white; 
+    padding: 40px 20px; 
+    text-align: left; 
+}
+
+footer .container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+footer h3 {
+    font-size: 1.5em; 
+    margin-bottom: 15px; 
+    color: #8b0000; 
+}
+
+footer p {
+    margin-bottom: 10px; 
+    line-height: 1.6; 
+}
+
+footer a {
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+footer a:hover {
+    text-decoration: underline; 
+}
+
+footer .col-md-4 {
+    margin-bottom: 20px; 
+}
+
+footer img {
+    width: 30px; 
+    height: auto; 
+    margin-right: 10px; 
+}
+
+@media (min-width: 768px) {
+    footer .row {
+        display: flex; 
+        justify-content: space-between; 
+    }
+}
+
+@media (max-width: 768px) {
+    .Imagenes-Carrusel {
+        height: 300px;
+    }
+
+    .Imagenes-Carrusel h1 {
+        font-size: 36px;
+    }
+
+    .Imagenes-Carrusel p {
+        font-size: 30px;
+    }
+
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+        height: 350px;
+    }
+
+    footer {
+        padding: 30px 10px;
+    }
+
+    footer h3 {
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    footer a img {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Baskervville SC";
+    background-color: #333;
+}
+
+header{
+    text-align: center;
+    padding: 10px 0;
+    background:#171718;
+}
+
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;  
+    margin: 0px 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    
+}
+
+nav a:hover{
+    color: #8b0000;  
+    border-radius: 20px;
+    text-decoration: underline;
+    
+}
+
+.LogoHeader {
+    height: 70px;
+    align-items: left 10px;
+    margin-left:10px ;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.LoginCarrito {
+    height: 30px;
+    align-items:flex-end 10px;
+    margin-left:10px ;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: 40px;
+}
+
+.LoginButton {
+    background-color: #171718;
+    border: #171718;
+    color: #8b0000;
+    font-family: "Baskervville SC" ;
+}
+
+.LoginButton:hover  {
+    color: white;
+    text-decoration: overline;
+}
+
+.CarritoButton {
+    background-color: #171718;
+    border: #171718;
+    color: #8b0000;
+}
+
+.CarritoButton:hover  {
+    color: white;
+    text-decoration: overline;
+}
+
+.HeaderGeneral {
+    display: flex;
+    flex-direction: row;
+}
