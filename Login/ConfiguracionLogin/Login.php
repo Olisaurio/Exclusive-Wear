@@ -25,7 +25,7 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Password'])) {
                 $_SESSION['NombreUsuario'] = $usuario['NombreUsuario'];
                 $_SESSION['user_id'] = $usuario['Id'];  // Asumiendo que la columna se llama 'Id'
 
-                header("location: ../../Index.php?success=Usuario loguaado con éxito!");
+                header("location: /index.php?success=Usuario loguaado con éxito!");
                 exit();
             } else {
                 echo "<script>

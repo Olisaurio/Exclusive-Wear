@@ -7,7 +7,6 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
     $Email = $_POST['Email'];
     $Password = $_POST['Password'];
 
-    // Conexión a la base de datos (ajusta los parámetros según tu configuración)
     $conexion = new mysqli("bpglbioljgviaczpauqk-mysql.services.clever-cloud.com", "uljaujvaprjxaclv", "EZ7KuEt9xpePTwELS6bK", "bpglbioljgviaczpauqk");
 
     // Verificar si hay errores en la conexión
@@ -44,7 +43,7 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
             // Obtener el ID del nuevo usuario
             $_SESSION['user_id'] = $stmt_insert->insert_id; // Guardar ID del usuario en sesión
             $_SESSION['NombreUsuario'] = $NombreUsuario; // Guardar nombre de usuario en sesión
-            header("location: ../../Index.php?success=Usuario creado con éxito!");
+            header("location: ../../index.php?success=Usuario creado con éxito!");
             exit();
         }
         
