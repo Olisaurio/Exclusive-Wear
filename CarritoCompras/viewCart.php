@@ -1,7 +1,6 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 
 // Función de conexión a la base de datos
 function conexion() {
@@ -153,7 +152,7 @@ if (!$query) {
     <h2 class="total">Total: $<?php echo number_format($total, 2); ?></h2>
 
     <?php if ($query->num_rows > 0): ?>
-        <a href="checkout.php" class="button">Proceder al Pago</a>
+        <a href="Pagos.php" class="button">Proceder al Pago</a>
     <?php endif; ?>
 
     <a href="/Promociones.php" class="button">Seguir viendo Productos</a>
