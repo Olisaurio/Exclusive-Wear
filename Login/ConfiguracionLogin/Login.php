@@ -21,9 +21,8 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Password'])) {
             $usuario = $resultado->fetch_assoc();
             
             if (password_verify($Password, $usuario['Password'])) {
-                // Guardar tanto el nombre de usuario como el ID en la sesión
                 $_SESSION['NombreUsuario'] = $usuario['NombreUsuario'];
-                $_SESSION['user_id'] = $usuario['Id'];  // Asumiendo que la columna se llama 'Id'
+                $_SESSION['user_id'] = $usuario['Id'];
 
                 header("location: /index.php?success=Usuario loguaado con éxito!");
                 exit();

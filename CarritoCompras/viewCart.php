@@ -55,7 +55,7 @@ if (!$query) {
     background-image: url(/Imagenes/Fondo/blurry-gradient-haikei.svg);
 }
         h1 {
-            color: #dc3545; /* Rojo */
+            color: #dc3545;
         }
         table {
             width: 100%;
@@ -66,27 +66,27 @@ if (!$query) {
             color: #dee2e6;
             padding: 10px;
             text-align: left;
-            border-bottom: 1px solid #dee2e6; /* Gris claro */
+            border-bottom: 1px solid #dee2e6;
         }
         th {
-            background-color: #343a40; /* Negro */
-            color: white; /* Blanco */
+            background-color: #343a40;
+            color: white; 
         }
         .button {
-            background-color: #dc3545; /* Rojo */
-            color: white; /* Blanco */
+            background-color: #dc3545;
+            color: white; 
             border: none;
             padding: 10px 15px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         .button:hover {
-            background-color: #c82333; /* Rojo más oscuro */
+            background-color: #c82333; 
         }
         .total {
             font-size: 1.5em;
             margin-top: 20px;
-            color: #dc3545; /* Rojo */
+            color: #dc3545; 
         }
         @media (max-width: 600px) {
             table {
@@ -95,7 +95,7 @@ if (!$query) {
                 white-space: nowrap;
             }
             th, td {
-                font-size: 14px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+                font-size: 14px;
                 padding: 8px;
             }
         }

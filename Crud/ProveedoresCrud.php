@@ -1,11 +1,11 @@
 <?php
-
+// Conexión a la base de datos
 function conexion() {
     $host = "bpglbioljgviaczpauqk-mysql.services.clever-cloud.com";
     $user = "uljaujvaprjxaclv";
     $pass = "EZ7KuEt9xpePTwELS6bK";
     $bd = "bpglbioljgviaczpauqk";
-
+    
     $conexion = mysqli_connect($host, $user, $pass, $bd);
     if (!$conexion) {
         die("Conexión fallida: " . mysqli_connect_error());
@@ -13,36 +13,34 @@ function conexion() {
     return $conexion;
 }
 
-// Crear usuario
-function crearUsuario($nombreUsuario, $password, $email) {
+// Crear proveedor
+function crearProveedor($nombre, $telefono, $email, $direccion, $ciudad, $pais) {
     $conexion = conexion();
-    $hashPassword = password_hash($password, PASSWORD_BCRYPT); // Hasheando el password
-    $sql = "INSERT INTO usuarios (NombreUsuario, Password, Email) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO proveedores (Nombre, Telefono, Email, Direccion, Ciudad, Pais) VALUES (?, ?, ?, ?, ?, ?)";
     if ($stmt = $conexion->prepare($sql)) {
-        $stmt->bind_param("sss", $nombreUsuario, $hashPassword, $email);
+        $stmt->bind_param("ssssss", $nombre, $telefono, $email, $direccion, $ciudad, $pais);
         $stmt->execute();
         $stmt->close();
     }
     $conexion->close();
 }
 
-// Actualizar usuario
-function actualizarUsuario($id, $nombreUsuario, $password, $email) {
+// Actualizar proveedor
+function actualizarProveedor($id, $nombre, $telefono, $email, $direccion, $ciudad, $pais) {
     $conexion = conexion();
-    $hashPassword = password_hash($password, PASSWORD_BCRYPT); // Hasheando el password
-    $sql = "UPDATE usuarios SET NombreUsuario = ?, Password = ?, Email = ? WHERE Id = ?";
+    $sql = "UPDATE proveedores SET Nombre = ?, Telefono = ?, Email = ?, Direccion = ?, Ciudad = ?, Pais = ? WHERE Id = ?";
     if ($stmt = $conexion->prepare($sql)) {
-        $stmt->bind_param("sssi", $nombreUsuario, $hashPassword, $email, $id);
+        $stmt->bind_param("ssssssi", $nombre, $telefono, $email, $direccion, $ciudad, $pais, $id);
         $stmt->execute();
         $stmt->close();
     }
     $conexion->close();
 }
 
-// Eliminar usuario
-function eliminarUsuario($id) {
+// Eliminar proveedor
+function eliminarProveedor($id) {
     $conexion = conexion();
-    $sql = "DELETE FROM usuarios WHERE Id = ?";
+    $sql = "DELETE FROM proveedores WHERE Id = ?";
     if ($stmt = $conexion->prepare($sql)) {
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -51,16 +49,16 @@ function eliminarUsuario($id) {
     $conexion->close();
 }
 
-// Consultar usuarios
-function obtenerUsuarios() {
+// Consultar proveedores
+function obtenerProveedores() {
     $conexion = conexion();
-    $sql = "SELECT * FROM usuarios";
+    $sql = "SELECT * FROM proveedores";
     $result = mysqli_query($conexion, $sql);
-    $usuarios = [];
+    $proveedores = [];
     while ($row = mysqli_fetch_assoc($result)) {
-        $usuarios[] = $row;
+        $proveedores[] = $row;
     }
     $conexion->close();
-    return $usuarios;
+    return $proveedores;
 }
 ?>

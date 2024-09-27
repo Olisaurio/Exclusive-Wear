@@ -16,7 +16,6 @@ function obtenerProductosPorCategoria($conexion, $categoria) {
         echo '<h3>' . htmlspecialchars($row['Nombre']) . '</h3>';
         echo '<p>Precio: $' . number_format($row['Precio'], 2) . '</p>';
         
-        // Formulario para agregar al carrito
         echo '<form method="POST" action="CarritoCompras/addToCart.php">';
         echo '<input type="hidden" name="product_id" value="' . htmlspecialchars($row['Id']) . '">';
         echo '<button type="submit" class="add-to-cart">Agregar al Carrito</button>';
@@ -26,9 +25,7 @@ function obtenerProductosPorCategoria($conexion, $categoria) {
     }
 }
 
-// Llama a la función para obtener productos de la categoría 'masculino'
 obtenerProductosPorCategoria($conexion, 'femenino');
 
-// Cierra la conexión
 mysqli_close($conexion);
 ?>

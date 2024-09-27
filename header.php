@@ -21,7 +21,7 @@ $conexion = conexion();
 <header>
     <nav>
         <div class="HeaderGeneral">
-            <a href="Crud/IndexCrud.php" class="LogoHeader"><img src="./Imagenes/LOGOS/LOGO.png" alt=""></a>
+            <a href="/Crud/Usuarios.php" class="LogoHeader"><img src="./Imagenes/LOGOS/LOGO.png" alt=""></a>
             <div class="LoginCarrito">
                 <?php if (isset($_SESSION['NombreUsuario'])): ?>
                     <span class="NombreUsuario"><?php echo htmlspecialchars($_SESSION['NombreUsuario']); ?></span>

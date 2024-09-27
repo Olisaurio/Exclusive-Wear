@@ -1,7 +1,6 @@
 <?php
-session_start(); // Iniciar la sesión
+session_start();
 
-// Verificar si se han enviado los datos necesarios
 if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Password'])) {
     $NombreUsuario = $_POST['NombreUsuario'];
     $Email = $_POST['Email'];
@@ -9,12 +8,10 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
 
     $conexion = new mysqli("bpglbioljgviaczpauqk-mysql.services.clever-cloud.com", "uljaujvaprjxaclv", "EZ7KuEt9xpePTwELS6bK", "bpglbioljgviaczpauqk");
 
-    // Verificar si hay errores en la conexión
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     }
 
-    // Verificar si el nombre de usuario ya existe
     $sql = "SELECT * FROM usuarios WHERE NombreUsuario = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("s", $NombreUsuario);
@@ -29,7 +26,7 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
         header("location: ../Registrarse.php?error=El nombre de usuario ya existe");
         exit();
     } else {
-        // Insertar nuevo usuario
+
         $PasswordHasheada = password_hash($Password, PASSWORD_DEFAULT);
         $sql_insert = "INSERT INTO usuarios (Email, NombreUsuario, Password) VALUES (?, ?, ?)";
         $stmt_insert = $conexion->prepare($sql_insert);
@@ -40,18 +37,15 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
             header("location: ../Registrarse.php?error=Error al crear el usuario");
             exit();
         } else {
-            // Obtener el ID del nuevo usuario
-            $_SESSION['user_id'] = $stmt_insert->insert_id; // Guardar ID del usuario en sesión
-            $_SESSION['NombreUsuario'] = $NombreUsuario; // Guardar nombre de usuario en sesión
+            $_SESSION['user_id'] = $stmt_insert->insert_id;
+            $_SESSION['NombreUsuario'] = $NombreUsuario;
             header("location: ../../index.php?success=Usuario creado con éxito!");
             exit();
         }
         
-        // Cerrar la declaración de inserción
         $stmt_insert->close();
     }
     
-    // Cerrar la declaración de verificación
     $stmt->close();
     
 } else {
@@ -59,6 +53,5 @@ if (isset($_POST['NombreUsuario']) && isset($_POST['Email']) && isset($_POST['Pa
     exit();
 }
 
-// Cerrar la conexión a la base de datos
 $conexion->close();
 ?>

@@ -1,5 +1,4 @@
 <?php
-// Include guard to prevent redeclaration
 if (!function_exists('conexion')) {
     function conexion() {
         $host = "bpglbioljgviaczpauqk-mysql.services.clever-cloud.com";
