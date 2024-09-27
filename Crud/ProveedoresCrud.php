@@ -1,17 +1,9 @@
 <?php
 // Conexión a la base de datos
-function conexion() {
-    $host = "bpglbioljgviaczpauqk-mysql.services.clever-cloud.com";
-    $user = "uljaujvaprjxaclv";
-    $pass = "EZ7KuEt9xpePTwELS6bK";
-    $bd = "bpglbioljgviaczpauqk";
-    
-    $conexion = mysqli_connect($host, $user, $pass, $bd);
-    if (!$conexion) {
-        die("Conexión fallida: " . mysqli_connect_error());
-    }
-    return $conexion;
-}
+include 'conexion.php';
+
+// Llamar a la función para establecer la conexión
+$conexion = conexion();
 
 // Crear proveedor
 function crearProveedor($nombre, $telefono, $email, $direccion, $ciudad, $pais) {

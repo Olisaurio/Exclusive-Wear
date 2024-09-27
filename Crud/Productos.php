@@ -152,7 +152,7 @@ a:hover {
             <td><?php echo $row['Categoria']; ?></td>
             <td>
                 <a href="?delete=<?php echo $row['Id']; ?>">Eliminar</a>
-                <a href="editar_producto.php?id=<?php echo $row['Id']; ?>">Editar</a>
+                <a href="editarProducto.php?id=<?php echo $row['Id']; ?>">Editar</a>
             </td>
         </tr>
     <?php endwhile; ?>
