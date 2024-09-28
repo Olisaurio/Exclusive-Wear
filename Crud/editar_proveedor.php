@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'conexion.php'; // Asegúrate de incluir el archivo de conexión
-
+require 'conexion.php';
+require 'ProveedoresCrud.php';
 $conexion = conexion();
 
 if (!isset($_GET['id'])) {

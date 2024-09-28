@@ -1,10 +1,9 @@
 <?php
 include 'conexion.php';
 
-// Llamar a la función para establecer la conexión
 $conexion = conexion();
 
-// Insertar nuevo proveedor
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
@@ -19,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
     $stmt->execute();
 }
 
-// Eliminar proveedor
+
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $sql = "DELETE FROM proveedores WHERE Id = ?";
@@ -28,7 +27,7 @@ if (isset($_GET['delete'])) {
     $stmt->execute();
 }
 
-// Obtener todos los proveedores
+
 $result = $conexion->query("SELECT * FROM proveedores");
 ?>
 

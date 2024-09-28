@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'conexion.php'; // Asegúrate de incluir el archivo de conexión
+require 'conexion.php';
+require 'UsuariosCrud.php';
 
 $conexion = conexion();
 

@@ -18,28 +18,28 @@ function crearProducto($nombre, $descripcion, $precio, $existencias, $imagen, $c
 }
 
 // Actualizar producto
+//ENVIA CATEGORIA PERO NO IMAGEN
 function actualizarProducto($id, $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor) {
     $conexion = conexion();
     $sql = "UPDATE productos SET Nombre = ?, Descripcion = ?, Precio = ?, Existencias = ?, Imagen = ?, Categoria = ?, Id_Proveedor = ? WHERE Id = ?";
     $stmt = $conexion->prepare($sql);
-    if (!$stmt) {
-        echo "Error en la preparación de la consulta: " . $conexion->error;
-        return false;
-    }
-    
-    $stmt->bind_param("ssdiisii", $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor, $id);
-    if (!$stmt->execute()) {
-        echo "Error al ejecutar la consulta: " . $stmt->error;
-        return false;
-    }
-    
-    $afectadas = $stmt->affected_rows;
+    $stmt->bind_param("ssdisssi", $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor, $id);
+    $resultado = $stmt->execute();
     $stmt->close();
     $conexion->close();
-    
-    echo "Filas afectadas: " . $afectadas;
-    return $afectadas > 0;
+    return $resultado;
 }
+
+// ENVIA IMAGEN PERO NO CATEGORIA
+// function actualizarProducto($id, $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor) {
+//     $conexion = conexion();
+
+//     $sql = "UPDATE productos SET Nombre = ?, Descripcion = ?, Precio = ?, Existencias = ?, Imagen = ?, Categoria = ?, Id_Proveedor = ? WHERE Id = ?";
+//     $stmt = $conexion->prepare($sql);
+//     $stmt->bind_param("ssdisisi", $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor, $id);
+    
+//     return $stmt->execute();
+// }
 
 // Eliminar producto
 function eliminarProducto($id) {

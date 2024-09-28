@@ -2,22 +2,18 @@
 include 'conexion.php';
 include 'ProductosCrud.php';
 
-// Activar la visualización de errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Llamar a la función para establecer la conexión
 $conexion = conexion();
 
-// Verificar si se ha proporcionado un ID de producto
 if (!isset($_GET['id'])) {
     die("Error: No se proporcionó un ID de producto.");
 }
 
 $id = $_GET['id'];
 
-// Obtener los datos del producto
 $sql = "SELECT * FROM productos WHERE Id = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->bind_param("i", $id);
@@ -29,12 +25,7 @@ if (!$producto) {
     die("Error: No se encontró el producto.");
 }
 
-// Procesar el formulario cuando se envía
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<pre>Datos POST recibidos: ";
-    print_r($_POST);
-    echo "</pre>";
-
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
@@ -43,24 +34,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoria = $_POST['categoria'];
     $id_proveedor = $_POST['id_proveedor'];
 
-    // Asegúrate de que la función actualizarProducto maneje correctamente todos los campos
+    // Verificar que la imagen no esté vacía
+    if (empty($imagen)) {
+        die("Error: La URL de la imagen no puede estar vacía");
+    }
+
+
     $resultado = actualizarProducto($id, $nombre, $descripcion, $precio, $existencias, $imagen, $categoria, $id_proveedor);
     
     if ($resultado) {
         echo "Producto actualizado correctamente.";
+        
+        // Verificar los datos actualizados
+        $sql_check = "SELECT * FROM productos WHERE Id = ?";
+        $stmt_check = $conexion->prepare($sql_check);
+        $stmt_check->bind_param("i", $id);
+        $stmt_check->execute();
+        $result_check = $stmt_check->get_result();
+        $producto_actualizado = $result_check->fetch_assoc();
+        error_log("Producto después de la actualización: " . print_r($producto_actualizado, true));
+
+        // Verificar específicamente el campo de imagen
+        error_log("Valor de imagen después de la actualización: " . $producto_actualizado['Imagen']);
+
+        header("Location: Productos.php");
+        exit();
     } else {
         echo "Error al actualizar el producto.";
     }
-    
-    // Comentamos la redirección para ver los mensajes de depuración
-    // header("Location: Productos.php");
-    // exit();
 }
 
-// Obtener la lista de proveedores
 $sql_proveedores = "SELECT Id, Nombre FROM proveedores";
 $result_proveedores = $conexion->query($sql_proveedores);
-
 ?>
 
 <!DOCTYPE html>
@@ -76,20 +81,20 @@ $result_proveedores = $conexion->query($sql_proveedores);
 <body>
     <h1>Editar Producto</h1>
     <form method="POST">
-        <input type="text" name="nombre" value="<?php echo htmlspecialchars($producto['Nombre']); ?>" required>
-        <textarea name="descripcion" required><?php echo htmlspecialchars($producto['Descripcion']); ?></textarea>
-        <input type="number" step="0.01" name="precio" value="<?php echo htmlspecialchars($producto['Precio']); ?>" required>
-        <input type="number" name="existencias" value="<?php echo htmlspecialchars($producto['Existencias']); ?>" required>
-        <input type="text" name="imagen" value="<?php echo htmlspecialchars($producto['Imagen']); ?>" required>
-        <input type="text" name="categoria" value="<?php echo htmlspecialchars($producto['Categoria']); ?>" required>
-        <select name="id_proveedor">
-            <?php while ($proveedor = $result_proveedores->fetch_assoc()): ?>
-                <option value="<?php echo $proveedor['Id']; ?>" <?php echo ($proveedor['Id'] == $producto['Id_Proveedor']) ? 'selected' : ''; ?>>
-                    <?php echo htmlspecialchars($proveedor['Nombre']); ?>
-                </option>
-            <?php endwhile; ?>
-        </select>
-        <button type="submit">Actualizar Producto</button>
-    </form>
+    <input type="text" name="nombre" value="<?php echo htmlspecialchars($producto['Nombre']); ?>" required>
+    <textarea name="descripcion" required><?php echo htmlspecialchars($producto['Descripcion']); ?></textarea>
+    <input type="number" step="0.01" name="precio" value="<?php echo htmlspecialchars($producto['Precio']); ?>" required>
+    <input type="number" name="existencias" value="<?php echo htmlspecialchars($producto['Existencias']); ?>" required>
+    <input type="text" name="imagen" value="<?php echo htmlspecialchars($producto['Imagen']); ?>" required>
+    <input type="text" name="categoria" value="<?php echo htmlspecialchars($producto['Categoria']); ?>" required>
+    <select name="id_proveedor">
+        <?php while ($proveedor = $result_proveedores->fetch_assoc()): ?>
+            <option value="<?php echo $proveedor['Id']; ?>" <?php echo ($proveedor['Id'] == $producto['Id_Proveedor']) ? 'selected' : ''; ?>>
+                <?php echo htmlspecialchars($proveedor['Nombre']); ?>
+            </option>
+        <?php endwhile; ?>
+    </select>
+    <button type="submit">Actualizar Producto</button>
+</form>
 </body>
 </html>
